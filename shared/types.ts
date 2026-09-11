@@ -54,15 +54,18 @@ export interface Campaign {
 }
 
 // donations — a contribution, possibly anonymous (donor_id nullable)
+export type PledgeType = "one_off" | "recurring";
+
+// donations â€” a contribution, possibly anonymous (donor_id nullable)
 export interface Donation {
   id: string;
   donor_id: string | null;
+  campaign_id: string | null; // fk -> campaigns.id
   amount: number;
-  campaign: string | null; // campaign id or title reference
-  recurring: boolean; // "adopt a food parcel" pledge intent
+  pledge_type: PledgeType; // "recurring" = adopt-a-parcel pledge intent, no real billing
+  donor_name: string | null; // used for anonymous gifts
   created_at: string;
 }
-
 // notifications — in-app messages to a user
 export interface Notification {
   id: string;
