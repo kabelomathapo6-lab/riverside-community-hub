@@ -4,6 +4,7 @@
 // middleware stack + placeholders where each feature's routes will mount
 // as we build them stage by stage (auth, bookings, donations, admin).
 
+import profileRoutes from "./routes/profiles";
 import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
@@ -26,6 +27,7 @@ app.get("/health", (req, res) => {
 
 // ---- Feature routes mount here as we build them ----
 // app.use("/api/auth", authRoutes);
+app.use("/profiles", profileRoutes);
 // app.use("/api/bookings", bookingRoutes);
 // app.use("/api/donations", donationRoutes);
 // app.use("/api/admin", adminRoutes);
