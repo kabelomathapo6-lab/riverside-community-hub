@@ -2,6 +2,7 @@
 // Public pages are open; member/staff/admin areas will be gated by auth
 // and role as we build each feature.
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import LoginPage from "./pages/LoginPage";
 
 function Shell({ children }: { children: React.ReactNode }) {
   return (
@@ -41,7 +42,7 @@ export default function App() {
           <Route path="/" element={<Placeholder title="Welcome to Riverside" />} />
           <Route path="/facilities" element={<Placeholder title="Facilities & Availability" />} />
           <Route path="/donate" element={<Placeholder title="Donation Drive" />} />
-          <Route path="/login" element={<Placeholder title="Log in / Sign up" />} />
+          <Route path="/login" element={<LoginPage />} />
           <Route path="/dashboard" element={<Placeholder title="Member Dashboard" />} />
           <Route path="/admin" element={<Placeholder title="Admin Dashboard" />} />
           <Route path="*" element={<Placeholder title="Page not found" />} />
