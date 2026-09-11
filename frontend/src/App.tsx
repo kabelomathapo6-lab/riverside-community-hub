@@ -1,6 +1,8 @@
 // src/App.tsx — routing skeleton for the Riverside Community Hub.
 // Public pages are open; member/staff/admin areas will be gated by auth
 // and role as we build each feature.
+import DashboardPage from "./pages/DashboardPage";
+import RequireAuth from "./components/RequireAuth";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import LoginPage from "./pages/LoginPage";
 
@@ -43,7 +45,7 @@ export default function App() {
           <Route path="/facilities" element={<Placeholder title="Facilities & Availability" />} />
           <Route path="/donate" element={<Placeholder title="Donation Drive" />} />
           <Route path="/login" element={<LoginPage />} />
-          <Route path="/dashboard" element={<Placeholder title="Member Dashboard" />} />
+          <Route path="/dashboard" element={<RequireAuth><DashboardPage /></RequireAuth>} />
           <Route path="/admin" element={<Placeholder title="Admin Dashboard" />} />
           <Route path="*" element={<Placeholder title="Page not found" />} />
         </Routes>
