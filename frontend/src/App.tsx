@@ -1,6 +1,7 @@
 // src/App.tsx — routing skeleton for the Riverside Community Hub.
 // Public pages are open; member/staff/admin areas will be gated by auth
 // and role as we build each feature.
+import DonatePage from "./pages/DonatePage";
 import MyBookingsPage from "./pages/MyBookingsPage";
 import BookResourcePage from "./pages/BookResourcePage";
 import FacilitiesPage from "./pages/FacilitiesPage";
@@ -48,7 +49,7 @@ export default function App() {
           <Route path="/book/:id" element={<RequireAuth><BookResourcePage /></RequireAuth>} />
           <Route path="/" element={<Placeholder title="Welcome to Riverside" />} />
           <Route path="/facilities" element={<FacilitiesPage />} />
-          <Route path="/donate" element={<Placeholder title="Donation Drive" />} />
+          <Route path="/donate" element={<DonatePage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/dashboard" element={<RequireAuth><DashboardPage /></RequireAuth>} />
           <Route path="/admin" element={<Placeholder title="Admin Dashboard" />} />
