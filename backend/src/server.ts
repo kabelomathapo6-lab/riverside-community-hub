@@ -4,6 +4,9 @@
 // middleware stack + placeholders where each feature's routes will mount
 // as we build them stage by stage (auth, bookings, donations, admin).
 
+import donationRoutes from "./routes/donations";
+import campaignRoutes from "./routes/campaigns";
+import notificationRoutes from "./routes/notifications";
 import bookingRoutes from "./routes/bookings";
 import resourceRoutes from "./routes/resources";
 import profileRoutes from "./routes/profiles";
@@ -29,6 +32,9 @@ app.get("/health", (req, res) => {
 
 // ---- Feature routes mount here as we build them ----
 // app.use("/api/auth", authRoutes);
+app.use("/donations", donationRoutes);
+app.use("/campaigns", campaignRoutes);
+app.use("/notifications", notificationRoutes);
 app.use("/profiles", profileRoutes);
 app.use("/resources", resourceRoutes);
 app.use("/bookings", bookingRoutes);
