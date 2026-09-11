@@ -24,7 +24,7 @@ function Nav() {
   }
 
   return (
-    <div className="flex items-center gap-5 text-sm text-ink-soft">
+      <div className="flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-ink-soft">
       <Link to="/facilities" className="hover:text-ink">Facilities</Link>
       <Link to="/donate" className="hover:text-ink">Donate</Link>
       {session ? (
@@ -57,7 +57,7 @@ function Shell({ children }: { children: React.ReactNode }) {
   return (
     <div className="min-h-screen flex flex-col">
       <header className="border-b border-line">
-        <nav className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4">
+          <nav className="mx-auto flex max-w-6xl flex-col gap-3 px-5 py-4 sm:flex-row sm:items-center sm:justify-between">
           <Link to="/" className="text-lg font-bold text-brand-600">
             Riverside Community Hub
           </Link>
