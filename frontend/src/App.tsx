@@ -66,7 +66,7 @@ function Shell({ children }: { children: React.ReactNode }) {
       </header>
       <main className="flex-1">{children}</main>
       <footer className="border-t border-line py-6 text-center text-xs text-ink-faint">
-        Riverside Community Hub — student project.
+        Riverside Community Hub.
       </footer>
     </div>
   );
