@@ -21,7 +21,26 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 4000;
 
-app.use(cors());
+// CORS: allow only our known frontends. Localhost for development, the
+// deployed Vercel site for production, plus any extra origins listed in the
+// ALLOWED_ORIGINS env var (comma separated). Requests with no origin (like
+// health checks or curl) are allowed through.
+const allowedOrigins = [
+  "http://localhost:5173",
+  "https://riverside-community-hub.vercel.app",
+  ...(process.env.ALLOWED_ORIGINS?.split(",").map((o) => o.trim()).filter(Boolean) ?? []),
+];
+app.use(
+  cors({
+    origin(origin, callback) {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error(`Origin not allowed by CORS: ${origin}`));
+      }
+    },
+  }),
+);
 app.use(express.json());
 app.use(logger);
 
